@@ -1,5 +1,7 @@
 from MobileBertSquadV2 import MobileBertSquadV2
 from MobileBertZS import MobileBertZS
+from DistilBertCaseSquad import DistilBertCaseSquad
+from DistilRobertaBaseZS import DistilRobertaBaseZS
 from NLInference import NLI
 
 class NLUEngine(object):
@@ -36,6 +38,8 @@ class NLUEngine(object):
         '''
         if classifier_type == "MobileBertZS":
             return MobileBertZS(**kwargs)
+        elif classifier_type == "DistilRobertaBaseZS":
+            return MobileBertZS(**kwargs)
         else:
             raise ValueError(f"Invalid classifier_type: {classifier_type}")
 
@@ -48,5 +52,7 @@ class NLUEngine(object):
         '''
         if qa_engine_type == "MobileBertSQ2":
             return MobileBertSquadV2(**kwargs)
+        elif qa_engine_type == "DistilBertCaseSquad":
+            return DistilBertCaseSquad(**kwargs)
         else:
             raise ValueError(f"Invalid qa_engine_type: {qa_engine_type}")
